@@ -29,6 +29,10 @@ import java.sql.SQLException;
 /**
  * 抽象动态获取数据源
  *
+ * TODO tip
+ *  写了这个类，没有用spring中自带的 org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource
+ *  重写这个类主要是为了事务
+ *
  * @author TaoYu
  * @since 2.2.0
  */

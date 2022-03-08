@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * TODO tip
+ *  记录当前线程已经打开的连接，这个动态数据源没有用spring事务，spring事务中也有类似的ThreadLocal记录当前线程打开的数据源
  * @author funkye
  */
 public class ConnectionFactory {
