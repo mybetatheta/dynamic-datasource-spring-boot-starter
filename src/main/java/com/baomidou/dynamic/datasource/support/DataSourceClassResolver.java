@@ -92,7 +92,9 @@ public class DataSourceClassResolver {
         if (method.getDeclaringClass() == Object.class) {
             return "";
         }
+        //TODO tip 缓存、事务、切面都是使用 MethodClassKey这个类作为 map 的键
         Object cacheKey = new MethodClassKey(method, targetObject.getClass());
+        //TODO tip 使用本地map缓存方法对应的数据源，不用每次调动都重新计算
         String ds = this.dsCache.get(cacheKey);
         if (ds == null) {
             ds = computeDatasource(method, targetObject);

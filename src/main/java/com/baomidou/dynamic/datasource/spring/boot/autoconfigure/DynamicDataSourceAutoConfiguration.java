@@ -97,6 +97,12 @@ public class DynamicDataSourceAutoConfiguration implements InitializingBean {
         return dataSource;
     }
 
+    /**
+     * TODO tip
+     *  动态数据源切面
+     * @param dsProcessor 数据源处理
+     * @return
+     */
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     @Bean
     @ConditionalOnProperty(prefix = DynamicDataSourceProperties.PREFIX + ".aop", name = "enabled", havingValue = "true", matchIfMissing = true)
@@ -108,6 +114,11 @@ public class DynamicDataSourceAutoConfiguration implements InitializingBean {
         return advisor;
     }
 
+    /**
+     * TODO tip
+     *  动态事务切面
+     * @return
+     */
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     @Bean
     @ConditionalOnProperty(prefix = DynamicDataSourceProperties.PREFIX, name = "seata", havingValue = "false", matchIfMissing = true)
@@ -116,12 +127,24 @@ public class DynamicDataSourceAutoConfiguration implements InitializingBean {
         return new DynamicDataSourceAnnotationAdvisor(interceptor, DSTransactional.class);
     }
 
+    /**
+     * TODO tip
+     *  数据源创建初始化事件，用于扩展
+     *  EncDataSourceInitEvent 是进行创建前解密的处理
+     * @return
+     */
     @Bean
     @ConditionalOnMissingBean
     public DataSourceInitEvent dataSourceInitEvent() {
         return new EncDataSourceInitEvent();
     }
 
+    /**
+     * TODO tip
+     *  数据源动态解析 以#开头的
+     * @param beanFactory
+     * @return
+     */
     @Bean
     @ConditionalOnMissingBean
     public DsProcessor dsProcessor(BeanFactory beanFactory) {

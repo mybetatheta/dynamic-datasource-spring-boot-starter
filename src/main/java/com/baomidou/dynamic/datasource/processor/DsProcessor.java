@@ -18,6 +18,8 @@ package com.baomidou.dynamic.datasource.processor;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
+ * TODO tip
+ *  数据源处理器，用于解析 # 开头的表达式，目前支持header、session、spel表达式
  * @author TaoYu
  * @since 2.5.0
  */
