@@ -54,6 +54,8 @@ import java.util.List;
 
 /**
  * 动态数据源核心自动配置类
+ * TODO tip
+ *  @Import DruidDynamicDataSourceConfiguration 这个没有用去了也行
  *
  * @author TaoYu Kanyuxia
  * @see DynamicDataSourceProvider
