@@ -23,6 +23,8 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
+ * TODO tip
+ *  用于使用本地事务时，包装Connection，防止自动提交和关闭
  * @author funkye
  */
 @Slf4j

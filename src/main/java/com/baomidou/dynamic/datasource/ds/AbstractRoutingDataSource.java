@@ -45,6 +45,14 @@ public abstract class AbstractRoutingDataSource extends AbstractDataSource {
      */
     protected abstract DataSource determineDataSource();
 
+    /**
+     * TODO tip
+     *  没有xid，代表没有使用本地事务，还是正常获取连接
+     *  有xid，使用了本地事务，连接使用ConnectionProxy包装，里面覆盖了原来的close和commit方法，
+     *      防止mybatis在没有使用spring事务的时候，执行完sql后自动关闭连接
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Connection getConnection() throws SQLException {
         String xid = TransactionContext.getXID();
